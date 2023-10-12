@@ -1,0 +1,9 @@
+**Frontend will be coded in HTML, Java, and (maybe) CSS
+*Website appearence is in HTML
+*Website styling and formatting is in CSS (pretty sure CSS connects HTML and Java)
+*Website logic and functionallity is in Java
+
+**Need a form to submit credentials (logic will be in Java, appearence will be in HTML and CSS)
+*Using scanner to take input and assign variables -> passed to database (php & sql)
+
+
