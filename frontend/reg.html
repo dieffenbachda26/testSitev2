@@ -21,16 +21,17 @@
 </div>
 <br>
 <div>
-    <form action="/action_page.php">
+    <!-- //TODO: REGEX/Pattern for submission fields (lookup email regex)  -->
+    <form action="../mid/reg.php" method="post">
         <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname" placeholder="John"><br><br>
+        <input type="text" id="fName" name="fName" placeholder="John"><br><br>
         <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname" placeholder="Doe"><br><br>
-        <label for="fname">Email:</label>
-        <input type="text" id="fname" name="fname" placeholder="example@what.ever"><br><br>
-        <label for="lname">Phone Number:</label>
-        <input type="text" id="lname" name="lname" placeholder="XXX-XXX-XXXX"><br><br>
-        <input type="submit" value="Submit">
+        <input type="text" id="lName" name="lName" placeholder="Doe"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="Email" name="Email" placeholder="example@what.ever"><br><br>
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="Phone" name="Phone" pattern="[0-9]+" placeholder="XXX-XXX-XXXX"><br><br>
+        <input type="submit" value="Submit" name="Submit">
     </form>
 </div>
 <!--All requirements for the registration are fullfilled, find a way to link this form to the backend-->
