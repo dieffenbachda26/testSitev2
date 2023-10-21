@@ -21,17 +21,16 @@
 </div>
 <br>
 <div>
-    <!-- //TODO: REGEX/Pattern for submission fields (lookup email regex) NOT FINISHED YET 
-    Also get users to put in passwords (THAT MUST MATCH!!!)-->
-    <!-- Add password field to DB -->
+    <!-- TODO: Email formatter is "working", only problem is it needs to catch any non-alphanumeric characters present that arent periods or hyphens-->
+    <!-- TODO: Also look into server-side validation for the fields-->
     <form action="../mid/reg.php" method="post">
         <label for="fname">First name:</label>
         <input type="text" id="fName" name="fName" placeholder="John"><br><br>
         <label for="lname">Last name:</label>
         <input type="text" id="lName" name="lName" placeholder="Doe"><br><br>
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" placeholder="example@what.ever"><br><br>
-        <label for="phone">10-Digit Phone Number:</label>
+        <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.@[a-zA-Z0-9-]+.[a-zA-Z0-9-]$" placeholder="example@what.ever"><br><br>
+        <label for="phone">Phone Number:</label>
         <input type="text" id="phone" name="phone" pattern="^(0-9)?\d{3}-\d{3}-\d{4}$" placeholder="XXX-XXX-XXXX"><br><br>
         <input type="submit" value="Submit" name="Submit">
     </form>

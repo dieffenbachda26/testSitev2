@@ -1,0 +1,9 @@
+__FRONT__
+    - Need to fix email regex to not allow special characters, and validate that the domain given is valid 
+    - Add pass field & validation to reg.html
+
+__MID__
+    - Look into server-side validation for 
+
+__BACK__
+    - 
