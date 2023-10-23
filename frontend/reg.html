@@ -2,24 +2,32 @@
 <html>
 
 <head>
-    <title>
-        Registration
-    </title>
+
+    <div>
+        <title>
+            Registration
+        </title>
+
+        <link rel="icon" type="image/x-icon" href="../resources/images/favicon.ico">
+
+        <h1>
+            Account Registration
+        </h1>
+    </div>
+
+    <!--Finish back to index navigation button-->
+    <div>
+        <button value="Back" name="Back" href="index.html"></button>
+    </div><hr>
+    
 </head>
 
 <div>
-    <h1>
-        Website Registration
-    </h1>
-</div>
-<hr>
-<div>
-
     <body>
         Please register below
-    </body>
+    </body><br>
 </div>
-<br>
+
 <div>
     <!-- TODO: Email formatter is "working", only problem is it needs to catch any non-alphanumeric characters present that arent periods or hyphens-->
     <!-- TODO: Also look into server-side validation for the fields-->
@@ -29,12 +37,17 @@
         <label for="lname">Last name:</label>
         <input type="text" id="lName" name="lName" placeholder="Doe"><br><br>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.@[a-zA-Z0-9-]+.[a-zA-Z0-9-]$" placeholder="example@what.ever"><br><br>
+        <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.@[a-zA-Z0-9-]+.[a-zA-Z0-9-]$"
+            placeholder="example@what.ever"><br><br>
         <label for="phone">Phone Number:</label>
-        <input type="text" id="phone" name="phone" pattern="^(0-9)?\d{3}-\d{3}-\d{4}$" placeholder="XXX-XXX-XXXX"><br><br>
+        <input type="text" id="phone" name="phone" pattern="^(0-9)?\d{3}-\d{3}-\d{4}$"
+            placeholder="XXX-XXX-XXXX"><br><br>
         <label for="pass">Password:</label>
-        <input type="password" id="pass" name="pass" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$" minlength="8" required><br><br>
+        <input type="password" id="pass" name="pass"
+            pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$" minlength="8"
+            required><br><br>
         <input type="submit" value="Submit" name="Submit">
     </form>
 </div>
+
 </html>
