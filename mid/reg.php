@@ -1,5 +1,4 @@
 <?php
-//TODO: Change connection.php file location later
 include("connection.php");
 
 var_dump($_POST);
