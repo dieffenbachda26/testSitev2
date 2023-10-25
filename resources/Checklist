@@ -3,12 +3,11 @@ __FRONT__
     - Start working on navigation buttons for users
     - Read about html styling and how to combine it with css or jvs, would be neat
     - Make a user info page to begin pulling info from db
+    - Check email uniqueness @ registration
 
 __MID__
     - Look into server-side validation for entires
+    - Look into accepting only specific domains
 
 __BACK__
     - Make sure you can push and post info from db
-
-__MISC__
-    - Add funny skeleton page

@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +20,9 @@
 <div>
 
     <body>
-        Please choose an option below
+        Please choose an option below<br><br>
+        <p>I am currently logged in; T/F: </p><?php $_SESSION['name'] ?>
+
     </body>
 </div>
 <br>
