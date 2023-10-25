@@ -1,7 +1,7 @@
 <?php
 include("connection.php");
 
-if ($stmt = $con->prepare('SELECT id, pass FROM user WHERE email = ?')) {
+if ($stmt = $connection->prepare('SELECT ID, pass FROM user WHERE email = ?')) {
     $stmt->bind_Param('s', $_POST['email']);
     
     $stmt->execute();
@@ -24,7 +24,7 @@ if ($stmt = $con->prepare('SELECT id, pass FROM user WHERE email = ?')) {
     } 
 } else {
     echo 'Infocorrect username and/or password';
-
-    $stmt->close();
 }
+
+$stmt->close();
 ?>
