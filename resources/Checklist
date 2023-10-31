@@ -2,12 +2,12 @@ __FRONT__
     - Need to fix email regex to not allow special characters, and validate that the domain given is valid 
     - Start working on navigation buttons for users
     - Read about html styling and how to combine it with css or jvs, would be neat
-    - Make a user info page to begin pulling info from db
+    - Make a user info page 
     - Check email uniqueness @ registration
 
 __MID__
     - Look into server-side validation for entires
     - Look into accepting only specific domains
+    - Dynamic redirect countdowns w/ text
 
 __BACK__
-    - Make sure you can push and post info from db

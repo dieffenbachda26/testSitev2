@@ -1,5 +1,8 @@
 <?php
-//TODO: If not active start
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 session_start();
 include("connection.php");
 
@@ -18,13 +21,12 @@ if($stmt->rowCount() > 0) {
 //        if (password_verify($_POST['pass'], $pass)) {
     if ($_POST['pass'] == $result['pass']) {
         $_SESSION['loggedin'] = TRUE;
-        $_SESSION['name'] = $_POST['email'];
+        $_SESSION['email'] = $_POST['email'];
     //    $_SESSION['ID'] = $ID;
-        echo 'Welcome ' . $_SESSION['name'] . '!';
+        echo 'Welcome ' . $_SESSION['email'] . '!';
     } else {
-    echo 'Incorrect username and/or password'; 
+    echo 'Incorrect email and/or password'; 
     }
 } else {
-    echo 'Incorrect username and/or password';
+    echo 'Incorrect email and/or password';
 }
-?>

@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 //Definiting constants
 define('USER', "root");
@@ -13,5 +16,3 @@ try {
 catch(PDOException $e) {
     exit("Error: ".$e->getMessage());
 }
-
-?>

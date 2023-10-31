@@ -1,8 +1,13 @@
-<?php session_start() ?>
+<?php if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
 <!--Page header for navigation-->
+
 <head>
     <div style="background-color:tomato;">
         <title>
@@ -16,25 +21,23 @@
     <hr>
 </head>
 
+
 <!--TODO: Buttons for registration, logging in, and eventually user management replacing the create an account button-->
 <div>
 
     <body>
         Please choose an option below<br><br>
-        <p>I am currently logged in; T/F: </p><?php $_SESSION['name'] ?>
-
+        <p>I am currently logged in; T/F: </p><?php echo $_SESSION['email'] ?>
     </body>
-</div>
-<br>
-<div>
-    <button onclick="document.location='reg.html'">Create An Account</button>
 </div><br>
 <div>
-    <button onclick="document.location='login.html'">Login</button>
+    <button onclick="document.location='reg.php'">Create An Account</button>
 </div><br>
 <div>
-    <button onclick="document.location='../resources/misc/fun.html'" background: transparent; border: none !important; font-size:0;></button>
-    <!--Fix visibility-->
-</div>
+    <button onclick="document.location='login.php'">Login</button>
+</div><br>
+<div>
+    <button onclick="document.location='login.php'">User Management</button>
+</div><br>
 
 </html>
