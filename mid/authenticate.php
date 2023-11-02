@@ -3,7 +3,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-session_start();
 include("connection.php");
 
 $stmt = $connection->prepare('SELECT ID, pass FROM user WHERE email =:email');
@@ -30,3 +29,5 @@ if($stmt->rowCount() > 0) {
 } else {
     echo 'Incorrect email and/or password';
 }
+
+header("Location: ../index.php");

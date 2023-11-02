@@ -21,7 +21,7 @@
 
     <!--Navigation button-->
     <div>
-        <button onclick="window.location='index.html'">Back to Home </button>
+        <button onclick="window.location='../index.php'">Back to Home </button>
     </div>
     <hr>
 </head>
