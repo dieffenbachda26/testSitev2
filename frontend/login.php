@@ -7,7 +7,6 @@
 <html>
 
 <!--Navigation section-->
-
 <head>
     <div style="background-color:tomato;">
         <title>

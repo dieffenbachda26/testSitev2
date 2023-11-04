@@ -1,5 +1,8 @@
 <?php if (session_status() === PHP_SESSION_NONE) {
     session_start();
+
+    $_SESSION['loggedin'];
+
 }
 ?>
 
@@ -26,8 +29,10 @@
 <div>
 
     <body>
-        Please choose an option below<br><br>
-        <p>I am currently logged in; T/F: </p><?php echo $_SESSION['loggedin'] ?>
+        Please choose an option below<br>
+        <?php if ($_SESSION['loggedin'] == true) { ?>
+        <p>Currently logged in as : <?php echo $_SESSION['email'] ?></p>
+        <?php } ?>
     </body>
 </div><br>
 <div>

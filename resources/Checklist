@@ -3,8 +3,7 @@ __FRONT__
     - Start working on navigation buttons for users
     - Read about html styling and how to combine it with css or jvs, would be neat
     - Make a user info page 
-    - Check email uniqueness @ registration
-    - Figure out how to check if user is logged in and grant access based on that
+    - User log privs
 
 __MID__
     - Look into server-side validation for entires
