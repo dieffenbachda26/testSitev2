@@ -29,7 +29,7 @@
 <div>
 
     <body>
-        Please choose an option below<br>
+        <b><u> Please choose an option below: </u></b> <br>
         <?php if ($_SESSION['loggedin'] == true) { ?>
         <p>Currently logged in as : <?php echo $_SESSION['email'] ?></p>
         <?php } ?>
@@ -49,7 +49,7 @@
 </div><br>
 <div>
     <?php if ($_SESSION['loggedin'] == true) { ?>
-        <button onclick="document.location='frontend/usrmgmt.php'">User Management</button>
+        <button onclick="document.location='frontend/usrMgmt.php'">User Management</button>
     <?php } ?>
 </div><br>
 

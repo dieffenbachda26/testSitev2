@@ -8,10 +8,10 @@
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    var_dump($result); 
-    die();
-
-    echo count($result);
+    //Debugging lines below dump all table entires and then echo the amount of records found (adding 1 for an accurate count)
+    // var_dump($result); 
+    // die();
+    //echo count($result) + 1;
 }
 ?>
 
@@ -38,18 +38,21 @@
 </html>
 
 <?php if ($_SESSION['loggedin'] == true) {
-    echo "Welcome to the user management home page."; ?> 
+    echo "Welcome to the user management home page."; ?><br><br>
 
-    <!-- <table>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-    </tr> -->
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+        <tr>
+        </tr>
 
-<?php } else {
+    <?php } else {
     echo "Please log in first to see this page.";
-    ?><br><br><button onclick="document.location='login.php'">Login</button><?php
+    ?><br><br><button onclick="document.location='login.php'">Login</button>
+        <?php
 }
 ?>

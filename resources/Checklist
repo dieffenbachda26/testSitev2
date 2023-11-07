@@ -2,8 +2,9 @@ __FRONT__
     - Need to fix email regex to not allow special characters, and validate that the domain given is valid 
     - Start working on navigation buttons for users
     - Read about html styling and how to combine it with css or jvs, would be neat
-    - Make a user info page 
-    - User log privs
+    - Make a user info page (table)
+    - User account privs (0 = user, 1 = admin, 2 = superadmin)
+    - Account account management page for the user currently logged in
 
 __MID__
     - Look into server-side validation for entires

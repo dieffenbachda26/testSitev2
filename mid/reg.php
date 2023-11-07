@@ -14,6 +14,7 @@ if (isset($_POST['Submit'])) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $pass = $_POST['pass'];
+    $auth = '0';
 
     //Line below for debugging
     //echo $fName . $lName . $email . $phone . $pass;
@@ -24,13 +25,14 @@ if (isset($_POST['Submit'])) {
 
     //If the email entered is unique (var = 0), post to DB
     if ($result['EmailCount'] == 0) {
-        $query = $connection->prepare("INSERT INTO `user` (`fName`, `lName`, `email`, `phone`, `pass`) VALUES (:fName, :lName, :email, :phone, :pass)");
+        $query = $connection->prepare("INSERT INTO `user` (`fName`, `lName`, `email`, `phone`, `pass`, `auth`) VALUES (:fName, :lName, :email, :phone, :pass, :auth)");
 
         $query->bindParam("fName", $fName, PDO::PARAM_STR);
         $query->bindParam("lName", $lName, PDO::PARAM_STR);
         $query->bindParam("email", $email, PDO::PARAM_STR);
         $query->bindParam("phone", $phone, PDO::PARAM_STR);
         $query->bindParam("pass", $pass, PDO::PARAM_STR);
+        $query->bindParam("auth", $auth, PDO::PARAM_STR);
 
         $result = $query->execute();
 
