@@ -5,12 +5,12 @@ __FRONT__
     - Make a user info page (table)
     - User account privs (0 = user, 1 = admin, 2 = superadmin)
     - Account account management page for the user currently logged in
+    - Password verification @ registration 
 
 __MID__
     - Look into server-side validation for entires
     - Look into accepting only specific domains
     - Dynamic redirect countdowns w/ text
-    - Look into password encryption
 
 __BACK__
 

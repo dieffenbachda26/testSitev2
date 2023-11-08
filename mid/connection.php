@@ -10,7 +10,7 @@ define('DATABASE', "testSitev2-db");
 define('PASSWORD', "");
 
 try {
-    $connection = new PDO("mysql:host=".HOST.";dbname=".DATABASE, USER, PASSWORD);
+    $connection = new PDO("mysql:'host=".HOST.";dbname=".DATABASE, USER, PASSWORD);
 }
 
 catch(PDOException $e) {

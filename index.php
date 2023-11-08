@@ -1,8 +1,10 @@
 <?php if (session_status() === PHP_SESSION_NONE) {
     session_start();
 
-    $_SESSION['loggedin'];
-
+    if (!isset($_SESSION['loggedin'])) {
+        $_SESSION['loggedin'] = null;
+    } else {
+    }
 }
 ?>
 
@@ -31,7 +33,7 @@
     <body>
         <b><u> Please choose an option below: </u></b> <br>
         <?php if ($_SESSION['loggedin'] == true) { ?>
-        <p>Currently logged in as : <?php echo $_SESSION['email'] ?></p>
+            <p>Currently logged in as : <?php echo $_SESSION['email'] ?></p>
         <?php } ?>
     </body>
 </div><br>

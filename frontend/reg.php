@@ -47,7 +47,7 @@
 
             <!--TODO: Fix regex, allows things like t@t to pass-->
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.-]+@[a-zA-Z]+[.][a-zA-Z]{3}" placeholder="example@what.ever" required><br><br>
+            <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.-]+@[a-zA-Z]+[.][a-zA-Z]{3}$" placeholder="example@what.ever" required><br><br>
 
             <label for="phone">Phone Number:</label>
             <input type="text" id="phone" name="phone" pattern="(0-9)?\d{3}-\d{3}-\d{4}" placeholder="XXX-XXX-XXXX" required><br><br>

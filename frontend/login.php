@@ -26,7 +26,7 @@
 </head>
 
 <div>
-    <form action="../mid/auth.php" method="post">
+    <form action="../mid/login.php" method="post">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.@[a-zA-Z0-9-]+.[a-zA-Z0-9-]$" placeholder="example@what.ever"><br><br>
 

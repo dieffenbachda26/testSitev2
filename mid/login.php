@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 include("connection.php");
 
-$stmt = $connection->prepare('SELECT pass, fName, lName FROM user WHERE email =:email');
+$stmt = $connection->prepare('SELECT pass, fName, lName, auth FROM user WHERE email =:email');
 $stmt->bindParam('email', $_POST['email']);
 
 $stmt->execute();
@@ -13,7 +13,7 @@ $stmt->execute();
 if ($stmt->rowCount() > 0) {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($_POST['pass'] == $result['pass']) {
+    if (password_verify($_POST['pass'], $result['pass'])) {
         ?>
 
         <head>
@@ -39,6 +39,7 @@ if ($stmt->rowCount() > 0) {
         <?php
         $_SESSION['loggedin'] = TRUE;
         $_SESSION['email'] = $_POST['email'];
+        $_SESSION['auth'] = $result['auth'];
         echo 'Welcome ' . $result['fName'] . " " . $result['lName'] . '!';
 
     //Obligatory else clauses

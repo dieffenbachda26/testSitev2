@@ -13,11 +13,16 @@ if (isset($_POST['Submit'])) {
     $lName = $_POST['lName'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $pass = $_POST['pass'];
+    $plaintext_password = $_POST['pass'];
     $auth = '0';
 
     //Line below for debugging
     //echo $fName . $lName . $email . $phone . $pass;
+
+    $hash = password_hash(
+        $plaintext_password,
+        PASSWORD_DEFAULT
+    );
 
     $stmt = $connection->prepare('SELECT COUNT(email) AS EmailCount FROM user WHERE email = :email');
     $stmt->execute(array('email' => $_POST['email']));
@@ -31,7 +36,7 @@ if (isset($_POST['Submit'])) {
         $query->bindParam("lName", $lName, PDO::PARAM_STR);
         $query->bindParam("email", $email, PDO::PARAM_STR);
         $query->bindParam("phone", $phone, PDO::PARAM_STR);
-        $query->bindParam("pass", $pass, PDO::PARAM_STR);
+        $query->bindParam("pass", $hash, PDO::PARAM_STR);
         $query->bindParam("auth", $auth, PDO::PARAM_STR);
 
         $result = $query->execute();
