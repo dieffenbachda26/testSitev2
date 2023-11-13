@@ -78,8 +78,8 @@
                 <td><?= $user['email'] ?></td>
                 <td><?= $user['phone'] ?></td>
                 <td><?= $authStr ?></td>
-                <td>insert button</td>
-                <td>insert button</td>
+                <td><button onclick="document.location='login.php'">Edit</button></td>
+                <td><button onclick="document.location='login.php'">Delete</button></td>
             </tr>
         <?php } ?>
 
