@@ -40,6 +40,7 @@ if ($stmt->rowCount() > 0) {
         $_SESSION['loggedin'] = TRUE;
         $_SESSION['email'] = $_POST['email'];
         $_SESSION['auth'] = $result['auth'];
+        $_SESSION['emailTwo'] = null;
         echo 'Welcome ' . $result['fName'] . " " . $result['lName'] . '!';
 
     //Obligatory else clauses

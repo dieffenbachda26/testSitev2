@@ -56,7 +56,6 @@
             <th></th>
             <th></th>
         </tr>
-        <!--TODO: Switch statement that changes auth to user,admin,or superadmin-->
 
         <?php
         $authStr;
@@ -78,10 +77,13 @@
                 <td><?= $user['email'] ?></td>
                 <td><?= $user['phone'] ?></td>
                 <td><?= $authStr ?></td>
-                <td><button onclick="document.location='login.php'">Edit</button></td>
-                <td><button onclick="document.location='login.php'">Delete</button></td>
+                <?php if ($_SESSION['auth'] == 1 || $_SESSION['auth'] == 2) { ?>
+                    <td><button onclick="document.location='/usrmgmt/usrEdit.php'">Edit</button></td> <?php } ?>
+                <?php if ($_SESSION['auth'] == 2) { ?>
+                    <td><button onclick="document.location='login.php'">Delete</button></td> <?php } ?>
             </tr>
         <?php } ?>
+        <!--Try posting the table row by clicking on either button, SEE IF IT WORKS-->
 
     <?php } else {
     echo "Please log in first to see this page.";
