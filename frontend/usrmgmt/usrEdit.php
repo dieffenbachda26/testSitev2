@@ -38,14 +38,19 @@
         </h1>
     </div>
 
-    <!--Navigation button-->
+    <!--Navigation buttons-->
     <div>
-        <button onclick="window.location='../../index.php'">Back to Home </button>
+        <button onclick="window.location='../../index.php'">Back to Home </button><br><br>
+    </div>
+
+    <div>
+        <button onclick="window.location='../usrmgmt.php'">Back to User Management </button>
     </div>
     <hr>
 </head>
 
-<!--fName, lName, email, phone, auth-->
+<!--fName, lName, email, phone, auth
+TODO: Add auth change if super admin-->
 <div>
     <form action="../../mid/usrmgmt/usrEdit.php" method="post">
         <label for="fname">First name:</label>
@@ -56,10 +61,17 @@
 
         <!--TODO: Fix regex, allows things like t@t to pass-->
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.-]+@[a-zA-Z]+[.][a-zA-Z]{3}$" placeholder="<?= $result['email'] ?>"><br><br>
+        <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.-]+@[a-zA-Z]+[.][a-zA-Z]{3}$"
+            placeholder="<?= $result['email'] ?>"><br><br>
 
         <label for="phone">Phone Number:</label>
-        <input type="text" id="phone" name="phone" pattern="(0-9)?\d{3}-\d{3}-\d{4}" placeholder="<?= $result['phone'] ?>"><br><br>
+        <input type="text" id="phone" name="phone" pattern="(0-9)?\d{3}-\d{3}-\d{4}"
+            placeholder="<?= $result['phone'] ?>"><br><br>
+
+        <?php if ($_SESSION['auth'] == 2) { ?>
+            <label for="auth">Privilege Level:</label>
+            <input type="text" id="auth" name="auth" placeholder="<?= $result['auth'] ?>"><br><br>
+        <?php } ?>
 
         <input type="submit" value="Edit" name="Edit">
     </form>
