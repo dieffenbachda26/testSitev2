@@ -78,9 +78,13 @@
                 <td><?= $user['phone'] ?></td>
                 <td><?= $authStr ?></td>
                 <?php if ($_SESSION['auth'] == 1 || $_SESSION['auth'] == 2) { ?>
-                    <td><button onclick="document.location='/usrmgmt/usrEdit.php'">Edit</button></td> <?php } ?>
-                <?php if ($_SESSION['auth'] == 2) { ?>
-                    <td><button onclick="document.location='login.php'">Delete</button></td> <?php } ?>
+                    <form action="./usrmgmt/usrEdit.php" method="post">
+                        <td><button type="submit" value="<?= $user['email'] ?>" name="email">Edit</button></td><?php } ?>
+                    </form>
+                    <?php if ($_SESSION['auth'] == 2) { ?>
+                        <form action="./usrmgmt/usrRm.php" method="post">
+                            <td><button type="submit" value="<?= $user['email'] ?>" name="email">Delete</button></td><?php } ?>
+                        </form>
             </tr>
         <?php } ?>
         <!--Try posting the table row by clicking on either button, SEE IF IT WORKS-->

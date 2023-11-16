@@ -6,6 +6,9 @@ __FRONT__
     - User account privs (0 = user, 1 = admin, 2 = superadmin)
     - Account account management page for the user currently logged in
     - Password verification @ registration 
+    - Make sure user can only use letters for name (and apostrophies and hyphens)
+    - Add footer to all pages
+    - Make user be able to edit their own credentials
 
 __MID__
     - Look into server-side validation for entires
