@@ -30,11 +30,11 @@
 <head>
     <div style="background-color:tomato;">
         <title>
-            Editing User: <!--User name-->
+            Editing User
         </title>
 
         <h1 style="text-align:center;">
-            Editing User: <!--User name-->
+            Editing User: <?php echo($result['fName'] . " " . $result['lName']);?>
         </h1>
     </div>
 

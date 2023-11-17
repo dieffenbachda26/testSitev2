@@ -16,7 +16,7 @@
 
     //TODO: Add auth change if super admin
 
-    //$query = $connection->prepare("INSERT INTO `user` (`fName`, `lName`, `email`, `phone`, `pass`, `auth`) VALUES (:fName, :lName, :email, :phone, :pass, :auth)");
+    //$query = $connection->prepare("INSERT INTO `user` (`fName`, `lName`, `email`, `phone`, `pass`, `auth`) VALUES (:fName, :lName, :email, :phone, :pass, :auth) WHERE email :=email");
 
     //If first name is null, it equals default value; else set it to user entry
     if($_POST['fName'] == null) {
@@ -26,33 +26,37 @@
     }
 
     if($_POST['lName'] == null) {
-        $fName = $result['lName'];
+        $lName = $result['lName'];
     } else {
-       $fName = $_POST['lName'];
+       $lName = $_POST['lName'];
     }
 
     if($_POST['email'] == null) {
-        $fName = $result['email'];
+        $email = $result['email'];
     } else {
-       $fName = $_POST['email'];
+       $email = $_POST['email'];
     }
 
     if($_POST['phone'] == null) {
-        $fName = $result['phone'];
+        $phone = $result['phone'];
     } else {
-       $fName = $_POST['phone'];
+       $phone = $_POST['phone'];
     }
 
     if($_POST['auth'] == null) {
-        $fName = $result['auth'];
+        $auth = $result['auth'];
     } else {
-       $fName = $_POST['auth'];
+       $auth = $_POST['auth'];
     }
 
     //Line below for debugging
     var_dump($fName);
+    var_dump($lName);
+    var_dump($email);
+    var_dump($phone);
+    var_dump($auth);
 
-    // $query->bindParam("fName", $fName, PDO::PARAM_STR);
+    //     $query->bindParam("fName", $fName, PDO::PARAM_STR);
     //     $query->bindParam("lName", $lName, PDO::PARAM_STR);
     //     $query->bindParam("email", $email, PDO::PARAM_STR);
     //     $query->bindParam("phone", $phone, PDO::PARAM_STR);
