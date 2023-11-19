@@ -15,10 +15,6 @@
 
     //Line below for debugging $result
     //var_dump($result);
-
-    //TODO: Add auth change if super admin
-
-
 }
 ?>
 
