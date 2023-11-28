@@ -4,9 +4,9 @@
     include("../../mid/connection.php");
 
     //Line below for debugging $_POST
-    var_dump($_POST);
+    //var_dump($_POST);
 
-    $stmt = $connection->prepare('SELECT fName, lName, auth, email, phone FROM user WHERE email =:email');
+    $stmt = $connection->prepare('SELECT ID, fName, lName, auth, email, phone FROM user WHERE email =:email');
     $stmt->bindParam('email', $_POST['email']);
 
     $stmt->execute();
@@ -14,7 +14,7 @@
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     //Line below for debugging $result
-    var_dump($result);
+    //var_dump($result);
 }
 ?>
 
@@ -47,7 +47,6 @@
 </head>
 
 <!--User deletion prompt-->
-<p>If you are sure you want to delete this user, type DELETE in the box</p>
+<p>If you are sure you want to delete this user, click the confirm button. Otherwise choose a navigation button above.</p>
 <form action="../../mid/usrmgmt/usrRm.php" method="post">
-    <label for="fname">First name:</label>
-    <button type="submit">Delete User</button>
+    <button type="submit" name="ID" value="<?= $result['ID']?>">Confirm</button>

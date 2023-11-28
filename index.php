@@ -37,21 +37,22 @@
     <div>
         <div>
             <?php if ($_SESSION['loggedin'] == null) { ?>
-                <button onclick="document.location='frontend/reg.php'">Create An Account</button>
+                <button onclick="document.location='frontend/reg.php'">Create An Account</button><br><br>
             <?php } ?>
-        </div><br>
+        </div>
         <div>
             <?php if ($_SESSION['loggedin'] == null) { ?>
-                <button onclick="document.location='frontend/login.php'">Login</button>
+                <button onclick="document.location='frontend/login.php'">Login</button><br><br>
             <?php } else { ?>
-                <button onclick="document.location='frontend/logout.php'">Logout</button>
+                <button onclick="document.location='frontend/logout.php'">Logout</button><br><br>
             <?php } ?>
-        </div><br>
+        </div>
         <div>
             <?php if ($_SESSION['loggedin'] == true) { ?>
-                <button onclick="document.location='frontend/usrMgmt.php'">User Management</button>
+                <button onclick="document.location='frontend/usrMgmt.php'">User Management</button><br><br>
+                <button onclick="document.location='frontend/accSet.php'">Account Settings</button><br><br>
             <?php } ?>
-        </div><br>
+        </div>
     </div>
     <hr>
 </head>
