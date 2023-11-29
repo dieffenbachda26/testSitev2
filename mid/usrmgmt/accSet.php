@@ -59,34 +59,17 @@
     // var_dump($phone);
     // var_dump($auth);
 
-    $stmt = $connection->prepare('SELECT COUNT(email) AS EmailCount FROM user WHERE email = :email');
-    $stmt->execute(array('email' => $_POST['email']));
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $query->bindParam("ID", $ID, PDO::PARAM_INT);
+    $query->bindParam("fName", $fName, PDO::PARAM_STR);
+    $query->bindParam("lName", $lName, PDO::PARAM_STR);
+    $query->bindParam("email", $email, PDO::PARAM_STR);
+    $query->bindParam("phone", $phone, PDO::PARAM_STR);
+    $query->bindParam("auth", $auth, PDO::PARAM_STR);
 
-    //If the email entered is unique (var = 0), post to DB
-    //TODO: DYNAMIC COUNTDOWN ON PAGE 
+    $result = $query->execute();
 
-    if ($result['EmailCount'] == 0) {
-        $query = $connection->prepare("INSERT INTO `user` (`fName`, `lName`, `email`, `phone`, `pass`, `auth`) VALUES (:fName, :lName, :email, :phone, :pass, :auth)");
-
-        $query->bindParam("ID", $ID, PDO::PARAM_INT);
-        $query->bindParam("fName", $fName, PDO::PARAM_STR);
-        $query->bindParam("lName", $lName, PDO::PARAM_STR);
-        $query->bindParam("email", $email, PDO::PARAM_STR);
-        $query->bindParam("phone", $phone, PDO::PARAM_STR);
-        $query->bindParam("auth", $auth, PDO::PARAM_STR);
-
-        $result = $query->execute();
-
-        header("Location: ../index.php");
-
-    } else {
-
-        header('Refresh: 5; URL="../../frontend/usrMgmt.php"');
-
-        echo 'The email you entered is not unique, please try a different one';
+    header("Location: ../../frontend/usrMgmt.php");
 
 
-    }
 }
 ?>

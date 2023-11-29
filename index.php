@@ -50,7 +50,7 @@
         <div>
             <?php if ($_SESSION['loggedin'] == true) { ?>
                 <button onclick="document.location='frontend/usrMgmt.php'">User Management</button><br><br>
-                <button onclick="document.location='frontend/accSet.php'">Account Settings</button><br><br>
+                <button onclick="document.location='frontend/usrmgmt/accSet.php'">Account Settings</button><br><br>
             <?php } ?>
         </div>
     </div>

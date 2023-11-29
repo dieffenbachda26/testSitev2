@@ -9,6 +9,7 @@ __FRONT__
     - Make sure user can only use letters for name (and apostrophies and hyphens)
     - Add footer to all pages
     - Make user be able to edit their own credentials
+    - CRITICAL: MAKE IT TO WHERE THE SUBPAGES CANT BE ACCESSED WITHOUT LOGGING IN
 
 __MID__
     - Look into server-side validation for entires
