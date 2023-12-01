@@ -43,7 +43,7 @@
 </head>
 
 <div>
-    <form action="../../mid/usrmgmt/usrEdit.php" method="post">
+    <form action="../../mid/usrmgmt/accSet.php" method="post">
 
         <label for="fname">First name:</label>
         <input type="text" id="fName" name="fName" placeholder="<?= $result['fName'] ?>"><br><br>
@@ -59,7 +59,10 @@
         <label for="phone">Phone Number:</label>
         <input type="text" id="phone" name="phone" pattern="^(0-9)?\d{3}-\d{3}-\d{4}$" placeholder="<?= $result['phone'] ?>"><br><br>
 
-        
+        <!--This regex requires that the user input a password with a min length of 8, 
+            at least 1 uppercase letter, 1 number, and 1 special non-alphanumeric character-->
+        <label for="phone">Password:</label>
+        <input type="text" id="pass" name="pass" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$"><br><br>
 
         <button type="submit" name="ID" value="<?= $result['ID'] ?>">Edit</button>
     </form>
