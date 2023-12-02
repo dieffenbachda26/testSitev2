@@ -53,11 +53,12 @@
     }
 
     //Line below for debugging
-    // var_dump($fName);
-    // var_dump($lName);
-    // var_dump($email);
-    // var_dump($phone);
-    // var_dump($auth);
+    var_dump($ID);
+    var_dump($fName);
+    var_dump($lName);
+    var_dump($email);
+    var_dump($phone);
+    var_dump($auth);
 
     $stmt = $connection->prepare('SELECT COUNT(email) AS EmailCount FROM user WHERE email = :email');
     $stmt->execute(array('email' => $_POST['email']));
@@ -66,8 +67,8 @@
     //If the email entered is unique (var = 0), post to DB
     //TODO: DYNAMIC COUNTDOWN ON PAGE 
 
-    if ($result['EmailCount'] == 0) {
-        $query = $connection->prepare("INSERT INTO `user` (`fName`, `lName`, `email`, `phone`, `pass`, `auth`) VALUES (:fName, :lName, :email, :phone, :pass, :auth)");
+    if (!$result['EmailCount']) {
+        $query = $connection->prepare("UPDATE `user` SET fName=:fName, lName=:lName, email=:email, phone=:phone, auth=:auth WHERE ID =:ID");
 
         $query->bindParam("ID", $ID, PDO::PARAM_INT);
         $query->bindParam("fName", $fName, PDO::PARAM_STR);
@@ -78,7 +79,7 @@
 
         $result = $query->execute();
 
-        header("Location: ../index.php");
+        header("Location: /testSitev2/frontend/usrmgmt.php");
 
     } else {
 

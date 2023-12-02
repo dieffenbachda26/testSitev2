@@ -1,32 +1,23 @@
-<?php if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-
-    if (!isset($_SESSION['loggedin'])) {
-        $_SESSION['loggedin'] = null;
-    } else {
-    }
-}
+<?php
+include("header.php");
 ?>
 
-<!DOCTYPE html>
 <html>
 
-<!--Page header for navigation-->
-
-<head>
-    <div style="background-color:tomato;">
+<body>
+    <!--Page header for navigation-->
+    <div>
         <title>
             Home Page
         </title>
 
-        <h1 style="text-align:center;">
-            Home Page
-        </h1>
+        <div class="navigationHeader">Home Page</div>
+
     </div>
 
     <!--Logged in indicator-->
     <div>
-        <?php if ($_SESSION['loggedin'] == true) { ?>
+        <?php if ($_SESSION['loggedin']) { ?>
             <p>Currently logged in as :
                 <?php echo $_SESSION['email'] ?>
             </p>
@@ -34,37 +25,39 @@
     </div>
 
     <!--User account management buttons (REGISTER/LOGIN/MGMT)-->
-    <div>
-        <div>
-            <?php if ($_SESSION['loggedin'] == null) { ?>
-                <button onclick="document.location='frontend/reg.php'">Create An Account</button><br><br>
-            <?php } ?>
-        </div>
-        <div>
-            <?php if ($_SESSION['loggedin'] == null) { ?>
-                <button onclick="document.location='frontend/login.php'">Login</button><br><br>
-            <?php } else { ?>
-                <button onclick="document.location='frontend/logout.php'">Logout</button><br><br>
-            <?php } ?>
-        </div>
-        <div>
-            <?php if ($_SESSION['loggedin'] == true) { ?>
-                <button onclick="document.location='frontend/usrMgmt.php'">User Management</button><br><br>
-                <button onclick="document.location='frontend/usrmgmt/accSet.php'">Account Settings</button><br><br>
-            <?php } ?>
-        </div>
+    <div class="form">
+
+        <?php if ($_SESSION['loggedin'] == null) { ?>
+            <button onclick="document.location='frontend/reg.php'">Create An Account</button>
+        <?php } ?>
+
+
+
+        <?php if ($_SESSION['loggedin'] == null) { ?>
+            <button onclick="document.location='frontend/login.php'">Login</button>
+        <?php } else { ?>
+            <button onclick="document.location='frontend/logout.php'">Logout</button>
+        <?php } ?>
+
+
+
+        <?php if ($_SESSION['loggedin']) { ?>
+            <button onclick="document.location='frontend/usrMgmt.php'">User Management</button>
+            <button onclick="document.location='frontend/usrmgmt/accSet.php'">Account Settings</button>
+        <?php } ?>
+
+
     </div>
     <hr>
-</head>
 
-<!--WEBSITE BODY CONTENTS-->
-<div>
+    <!--WEBSITE BODY CONTENTS-->
+    <div>
 
-    <!--VMI WEBCAM LIVE FEED FROM MOODY HALL-->
-    <h1 style="text-align: center;"><u> LIVE VMI WEBCAM </u></h1>
-    <img style="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 25%);"
-        src="http://144.75.184.14/cgi-bin/encoder?USER=public&amp;PWD=viewvideo&amp;GET_STREAM">
-    <p style="text-align: center;"><i>"For when you need to know its still standing"</i></p>
-</div>
+        <!--VMI WEBCAM LIVE FEED FROM MOODY HALL-->
+        <p>LIVE VMI WEBCAM</p>
+        <img style="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 25%);" src="http://144.75.184.14/cgi-bin/encoder?USER=public&amp;PWD=viewvideo&amp;GET_STREAM">
+        <p>"For when you need to know its still standing"</p>
+    </div>
+</body>
 
 </html>

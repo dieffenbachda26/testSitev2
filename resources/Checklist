@@ -10,6 +10,7 @@ __FRONT__
     - Add footer to all pages
     - Make user be able to edit their own credentials
     - CRITICAL: MAKE IT TO WHERE THE SUBPAGES CANT BE ACCESSED WITHOUT LOGGING IN
+    - Make it to where users can't change their own emails
 
 __MID__
     - Look into server-side validation for entires

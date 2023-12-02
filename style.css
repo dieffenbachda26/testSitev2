@@ -1,0 +1,16 @@
+
+/* Styling for navigation headers */
+.navigationHeader {
+    font-size: xx-large;
+    background-color: lightblue;
+}
+
+.form {
+    background-color: green;
+}
+
+.form button {
+    background-color: lightblue;
+    /* margin:  */
+    /* padding:  */
+}

@@ -61,7 +61,7 @@
 
         <!--This regex requires that the user input a password with a min length of 8, 
             at least 1 uppercase letter, 1 number, and 1 special non-alphanumeric character-->
-        <label for="phone">Password:</label>
+        <label for="pass">Password:</label>
         <input type="text" id="pass" name="pass" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$"><br><br>
 
         <button type="submit" name="ID" value="<?= $result['ID'] ?>">Edit</button>
