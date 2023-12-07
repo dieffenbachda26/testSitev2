@@ -1,3 +1,14 @@
+/* PAGE STYLING */
+
+body {
+    background-color: #F4F3EE;
+    margin: 0 100px 0 100px;
+}
+
+.masthead {
+    background-color: #304C62;
+}
+
 /* GENERIC TEXT STYLING */
 
 /* NAVIGATION HEADER */
@@ -26,9 +37,15 @@
 
 table {
     margin: auto;
+    margin-top: 50px;
     border: 3px solid;
     text-align: center;
     border-radius: 5px;
+    background-color: #033047;
+}
+
+th {
+    color: #F4F3EE;
 }
 
 tr {
@@ -39,11 +56,25 @@ tr {
 td {
     font-size: medium;
     border: 5px dashed;
+    background-color: #d9d9d9;
 }
 
 td button {
-    margin: 10px;
-    background-color: aqua;
+    background-color: white;
+    margin: 5px 3px 5px 3px;
+    padding: 7px;
+    border: 2px gray solid;
+    border-radius: 5px; 
+}
+
+td button:hover {
+    border: 2px lightgray solid;
+    border-radius: 5px; 
+}
+
+td button:focus {
+    background-color: darkgray;
+    border-color: gray;
 }
 
 /* DIV STYLING */
@@ -80,8 +111,11 @@ td button {
 /* Login indicator  */
 .logIn {
     text-align: right;
-    padding: 0 5px 0 5px;
+    padding: 2px 5px 0 5px;
+    margin-right: 3px;
     border: 2px solid;
+    color: #d9d9d9;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .cam {

@@ -1,55 +1,63 @@
 <?php
 include("header.php");
+
+if (!(isset($_SESSION['loggedin']))) {
+    $_SESSION['loggedin'] = null;
+}
 ?>
+
+
 
 <html>
 
 <body>
+
     <!--Page header for navigation-->
-    <div>
-        <title>
-            Home Page
-        </title>
+    <div class="masthead">
+        <div>
+            <title>
+                Home Page
+            </title>
 
-        <div class="navigationHeader">Home Page</div>
-
-    </div>
-
-    <!--User account management buttons (REGISTER/LOGIN/MGMT)-->
-    <div class="form">
-
-        <div class="buttons">
-            <?php if ($_SESSION['loggedin'] == null) { ?>
-                <button onclick="document.location='frontend/reg.php'">Create An Account</button>
-            <?php } ?>
-
-
-
-            <?php if ($_SESSION['loggedin'] == null) { ?>
-                <button onclick="document.location='frontend/login.php'">Login</button>
-            <?php } else { ?>
-                <button onclick="document.location='frontend/logout.php'">Logout</button>
-            <?php } ?>
-
-
-
-            <?php if ($_SESSION['loggedin']) { ?>
-                <button onclick="document.location='frontend/usrMgmt.php'">User Management</button>
-                <button onclick="document.location='frontend/usrmgmt/accSet.php'">Account Settings</button>
-            <?php } ?>
+            <div class="navigationHeader">Home Page</div>
 
         </div>
 
-        <div class="logIn">
-            <!--Logged in indicator-->
+        <!--User account management buttons (REGISTER/LOGIN/MGMT)-->
+        <div class="form">
+
+            <div class="buttons">
+                <?php if ($_SESSION['loggedin'] == null) { ?>
+                    <button onclick="document.location='frontend/reg.php'">Create An Account</button>
+                <?php } ?>
+
+
+
+                <?php if ($_SESSION['loggedin'] == null) { ?>
+                    <button onclick="document.location='frontend/login.php'">Login</button>
+                <?php } else { ?>
+                    <button onclick="document.location='frontend/logout.php'">Logout</button>
+                <?php } ?>
+
+
+
+                <?php if ($_SESSION['loggedin']) { ?>
+                    <button onclick="document.location='frontend/usrMgmt.php'">User Management</button>
+                    <button onclick="document.location='frontend/usrmgmt/accSet.php'">Account Settings</button>
+                <?php } ?>
+
+            </div>
+
             <?php if ($_SESSION['loggedin']) { ?>
-                <p>Currently logged in as :
-                    <?php echo $_SESSION['email'] ?>
-                </p>
-            <?php } ?>
+                <div class="logIn">
+                    <!--Logged in indicator-->
+                    <p>Currently logged in as :
+                        <?php echo $_SESSION['email'] ?>
+                    </p>
+                <?php } ?>
+                </div>
         </div>
     </div>
-    <hr>
 
     <!--WEBSITE BODY CONTENTS-->
     <div>
@@ -60,4 +68,5 @@ include("header.php");
     </div>
 </body>
 <?php include("footer.php") ?>
+
 </html>

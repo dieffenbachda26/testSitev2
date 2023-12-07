@@ -19,22 +19,27 @@ $count = count($result) + 1;
 
 <body>
 
-    <title>
-        User Management Home
-    </title>
-
-    <!--Navigation header-->
-    <div>
-        <!--Page header for navigation-->
-        <div class="navigationHeader">User Management Home</div>
-
+    <!--Page header for navigation-->
+    <div class="masthead">
         <div>
-            <button onclick="window.location='../index.php'">Back to Home </button>
+            <title>
+                User Management Home
+            </title>
+
+            <div class="navigationHeader">User Management Home</div>
+
+        </div>
+
+        <!--User account management buttons (REGISTER/LOGIN/MGMT)-->
+        <div class="form">
+            <div class="buttons">
+                <button onclick="window.location='../index.php'">Back to Home </button>
+            </div>
         </div>
     </div>
-    <hr>
 
-    <div class=".form">
+
+    <div class="form">
         <?php if ($_SESSION['loggedin'] == true) {
             echo "Welcome to the user management home page."; ?><br><br>
     </div>
@@ -84,10 +89,15 @@ $count = count($result) + 1;
 
     <?php } else {
             echo "Please log in first to see this page.";
-    ?><br><br><button onclick="document.location='login.php'">Login</button>
-    <?php
-        }
+
     ?>
+            <div class="buttons">
+                <button onclick="document.location='login.php'">Login</button>
+            <?php
+        }
+            ?>
+            </div>
+        </div>
 </body>
 
 </html>
