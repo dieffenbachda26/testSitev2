@@ -6,7 +6,7 @@
     //Line below for debugging $_POST
     //var_dump($_POST['ID']);
 
-    $stmt = $connection->prepare('SELECT ID, fName, lName, auth, email, phone FROM user WHERE ID =:ID');
+    $stmt = $connection->prepare('SELECT ID, fName, lName, auth, phone FROM user WHERE ID =:ID');
     $stmt->bindParam('ID', $_POST['ID']);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -16,7 +16,7 @@
 
     //TODO: Add auth change if super admin
 
-    $query = $connection->prepare('REPLACE INTO user (`ID`, `fName`, `lName`, `email`, `phone`, `auth`) VALUES (:ID, :fName, :lName, :email, :phone, :auth)');
+    $query = $connection->prepare('REPLACE INTO user (`ID`, `fName`, `lName`, `phone`, `auth`) VALUES (:ID, :fName, :lName, :phone, :auth)');
 
     //If first name is null, it equals default value; else set it to user entry
 
@@ -34,12 +34,6 @@
         $lName = $_POST['lName'];
     }
 
-    if ($_POST['email'] == null) {
-        $email = $result['email'];
-    } else {
-        $email = $_POST['email'];
-    }
-
     if ($_POST['phone'] == null) {
         $phone = $result['phone'];
     } else {
@@ -53,41 +47,21 @@
     }
 
     //Line below for debugging
-    var_dump($ID);
-    var_dump($fName);
-    var_dump($lName);
-    var_dump($email);
-    var_dump($phone);
-    var_dump($auth);
+    // var_dump($ID);
+    // var_dump($fName);
+    // var_dump($lName);
+    // var_dump($phone);
+    // var_dump($auth);
 
-    $stmt = $connection->prepare('SELECT COUNT(email) AS EmailCount FROM user WHERE email = :email');
-    $stmt->execute(array('email' => $_POST['email']));
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $query = $connection->prepare("UPDATE `user` SET fName=:fName, lName=:lName, phone=:phone, auth=:auth WHERE ID =:ID");
 
-    //If the email entered is unique (var = 0), post to DB
-    //TODO: DYNAMIC COUNTDOWN ON PAGE 
+    $query->bindParam("ID", $ID, PDO::PARAM_INT);
+    $query->bindParam("fName", $fName, PDO::PARAM_STR);
+    $query->bindParam("lName", $lName, PDO::PARAM_STR);
+    $query->bindParam("phone", $phone, PDO::PARAM_STR);
+    $query->bindParam("auth", $auth, PDO::PARAM_STR);
 
-    if (!$result['EmailCount']) {
-        $query = $connection->prepare("UPDATE `user` SET fName=:fName, lName=:lName, email=:email, phone=:phone, auth=:auth WHERE ID =:ID");
+    $result = $query->execute();
 
-        $query->bindParam("ID", $ID, PDO::PARAM_INT);
-        $query->bindParam("fName", $fName, PDO::PARAM_STR);
-        $query->bindParam("lName", $lName, PDO::PARAM_STR);
-        $query->bindParam("email", $email, PDO::PARAM_STR);
-        $query->bindParam("phone", $phone, PDO::PARAM_STR);
-        $query->bindParam("auth", $auth, PDO::PARAM_STR);
-
-        $result = $query->execute();
-
-        header("Location: /testSitev2/frontend/usrmgmt.php");
-
-    } else {
-
-        header('Refresh: 5; URL="../../frontend/usrMgmt.php"');
-
-        echo 'The email you entered is not unique, please try a different one';
-
-
-    }
+    header("Location: /testSitev2/frontend/usrmgmt.php");
 }
-?>

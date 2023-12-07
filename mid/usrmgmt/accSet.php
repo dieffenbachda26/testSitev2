@@ -6,7 +6,7 @@
     //Line below for debugging $_POST
     //var_dump($_POST['ID']);
 
-    $stmt = $connection->prepare('SELECT ID, fName, lName, email, phone, pass FROM user WHERE ID =:ID');
+    $stmt = $connection->prepare('SELECT ID, fName, lName, phone, pass FROM user WHERE ID =:ID');
     $stmt->bindParam('ID', $_POST['ID']);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -14,7 +14,7 @@
     //Line below for debugging $result
     // var_dump($result);
 
-    $query = $connection->prepare('REPLACE INTO user (`ID`, `fName`, `lName`, `email`, `phone`, `pass`) VALUES (:ID, :fName, :lName, :email, :phone, :pass)');
+    $query = $connection->prepare('REPLACE INTO user (`ID`, `fName`, `lName`, `phone`, `pass`) VALUES (:ID, :fName, :lName, :phone, :pass)');
 
     //If first name is null, it equals default value; else set it to user entry; same for rest of fields except ID which can't be changed
 
@@ -32,12 +32,6 @@
         $lName = $_POST['lName'];
     }
 
-    if ($_POST['email'] == null) {
-        $email = $result['email'];
-    } else {
-        $email = $_POST['email'];
-    }
-
     if ($_POST['phone'] == null) {
         $phone = $result['phone'];
     } else {
@@ -53,14 +47,12 @@
     //Line below for debugging
     // var_dump($fName);
     // var_dump($lName);
-    // var_dump($email);
     // var_dump($phone);
     // var_dump($pass);
 
     $query->bindParam("ID", $ID, PDO::PARAM_INT);
     $query->bindParam("fName", $fName, PDO::PARAM_STR);
     $query->bindParam("lName", $lName, PDO::PARAM_STR);
-    $query->bindParam("email", $email, PDO::PARAM_STR);
     $query->bindParam("phone", $phone, PDO::PARAM_STR);
     $query->bindParam("pass", $pass, PDO::PARAM_STR);
 

@@ -53,16 +53,10 @@ TODO: Regex for auth-->
     <form action="../../mid/usrmgmt/usrEdit.php" method="post">
 
         <label for="fname">First name:</label>
-        <input type="text" id="fName" name="fName" placeholder="<?= $result['fName'] ?>"><br><br>
+        <input type="text" id="fName" name="fName" placeholder="<?= $result['fName'] ?>" pattern="[a-zA-Z]+"><br><br>
 
         <label for="lname">Last name:</label>
-        <input type="text" id="lName" name="lName" placeholder="<?= $result['lName'] ?>"><br><br>
-
-        <!--TODO: Fix regex, allows things like t@t to pass
-            TODO: Validate that the new email isn't already in use elsewhere-->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.-]+@[a-zA-Z]+[.][a-zA-Z]{3}$"
-            placeholder="<?= $result['email'] ?>"><br><br>
+        <input type="text" id="lName" name="lName" placeholder="<?= $result['lName'] ?>" pattern="[a-zA-Z]+"><br><br>
 
         <label for="phone">Phone Number:</label>
         <input type="text" id="phone" name="phone" pattern="^(0-9)?\d{3}-\d{3}-\d{4}$"

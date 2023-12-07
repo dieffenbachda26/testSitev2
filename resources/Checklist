@@ -1,25 +1,15 @@
 __FRONT__
     - Need to fix email regex to not allow special characters, and validate that the domain given is valid 
-    - Start working on navigation buttons for users
-    - Read about html styling and how to combine it with css or jvs, would be neat
-    - Make a user info page (table)
-    - User account privs (0 = user, 1 = admin, 2 = superadmin)
-    - Account account management page for the user currently logged in
     - Password verification @ registration 
     - Make sure user can only use letters for name (and apostrophies and hyphens)
     - Add footer to all pages
-    - Make user be able to edit their own credentials
     - CRITICAL: MAKE IT TO WHERE THE SUBPAGES CANT BE ACCESSED WITHOUT LOGGING IN
-    - Make it to where users can't change their own emails
+    - Learn flexbox CSS
+    - Convert all old styling to new styling and reformat php files
 
 __MID__
-    - Look into server-side validation for entires
     - Look into accepting only specific domains
     - Dynamic redirect countdowns w/ text
 
 __BACK__
 
-
-
-
-!!Fix bugs before continuing with table

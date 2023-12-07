@@ -46,10 +46,10 @@
     <form action="../../mid/usrmgmt/accSet.php" method="post">
 
         <label for="fname">First name:</label>
-        <input type="text" id="fName" name="fName" placeholder="<?= $result['fName'] ?>"><br><br>
+        <input type="text" id="fName" name="fName" placeholder="<?= $result['fName'] ?>" pattern="[a-zA-Z]+"><br><br>
 
         <label for="lname">Last name:</label>
-        <input type="text" id="lName" name="lName" placeholder="<?= $result['lName'] ?>"><br><br>
+        <input type="text" id="lName" name="lName" placeholder="<?= $result['lName'] ?>" pattern="[a-zA-Z]+"><br><br>
 
         <!--TODO: Fix regex, allows things like t@t to pass
             TODO: Validate that the new email isn't already in use elsewhere-->

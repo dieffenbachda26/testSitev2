@@ -17,7 +17,7 @@ if ($stmt->rowCount() > 0) {
         ?>
 
         <head>
-            <div style="background-color:tomato;">
+            <div >
                 <title>
                     Login Successful
                 </title>

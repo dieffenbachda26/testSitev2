@@ -1,50 +1,43 @@
-<?php if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+<?php
 
-    include("../mid/connection.php");
+include("../header.php");
 
-    $stmt = $connection->prepare('SELECT fName, lName, email, phone, auth FROM user WHERE email != :email');
-    $stmt->bindParam('email', $_SESSION['email']);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $count = count($result) + 1;
+$stmt = $connection->prepare('SELECT fName, lName, email, phone, auth FROM user WHERE email != :email');
+$stmt->bindParam('email', $_SESSION['email']);
+$stmt->execute();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$count = count($result) + 1;
 
-    //Debugging lines below dump all table entires and then echo the amount of records found (adding 1 for an accurate count)
-    // var_dump($result);
-    // die();
-    //echo count($result) + 1;
-}
+//Debugging lines below dump all table entires and then echo the amount of records found (adding 1 for an accurate count)
+// var_dump($result);
+// die();
+//echo count($result) + 1;
 ?>
 
 <!DOCTYPE html>
 <html>
 
-<!--Page header for navigation-->
-<div>
+<body>
 
-    <head>
-        <div style="background-color:tomato;">
-            <title>
-                User Management Home
-            </title>
+    <title>
+        User Management Home
+    </title>
 
-            <h1 style="text-align:center;">
-                User Management Home
-            </h1>
-        </div>
+    <!--Navigation header-->
+    <div>
+        <!--Page header for navigation-->
+        <div class="navigationHeader">User Management Home</div>
 
-        <!--Navigation button-->
         <div>
             <button onclick="window.location='../index.php'">Back to Home </button>
         </div>
-        <hr>
-    </head>
-</div>
+    </div>
+    <hr>
 
-</html>
-
-<?php if ($_SESSION['loggedin'] == true) {
-    echo "Welcome to the user management home page."; ?><br><br>
+    <div class=".form">
+        <?php if ($_SESSION['loggedin'] == true) {
+            echo "Welcome to the user management home page."; ?><br><br>
+    </div>
 
     <table>
         <tr>
@@ -58,19 +51,19 @@
         </tr>
 
         <?php
-        $authStr;
-        foreach ($result as $user) {
-            switch ($user['auth']) {
-                case 0:
-                    $authStr = 'User';
-                    break;
-                case 1:
-                    $authStr = 'Admin';
-                    break;
-                case 2:
-                    $authStr = 'SuperAdmin';
-                    break;
-            } ?>
+            $authStr;
+            foreach ($result as $user) {
+                switch ($user['auth']) {
+                    case 0:
+                        $authStr = 'User';
+                        break;
+                    case 1:
+                        $authStr = 'Admin';
+                        break;
+                    case 2:
+                        $authStr = 'SuperAdmin';
+                        break;
+                } ?>
             <tr>
                 <td><?= $user['fName'] ?></td>
                 <td><?= $user['lName'] ?></td>
@@ -90,8 +83,11 @@
         <!--Try posting the table row by clicking on either button, SEE IF IT WORKS-->
 
     <?php } else {
-    echo "Please log in first to see this page.";
+            echo "Please log in first to see this page.";
     ?><br><br><button onclick="document.location='login.php'">Login</button>
     <?php
-}
+        }
     ?>
+</body>
+
+</html>
